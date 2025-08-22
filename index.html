@@ -23,26 +23,27 @@
 
   <!-- Open Graph / SEO -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="الأريج للعطور — عرض فاخر متحرك">
-  <meta property="og:description" content="تجربة فاخرة بحركات GSAP ولمسات ذهبية راقية.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop">
+  <meta property="og:title" content="موقع الآريج للعطور الرسمي ">
+  <meta property="og:description" content="مملكة العطور – حيث يلتقي الأناقة بالرائحة">
+  <meta property="og:image" content="images/IMG_9886.WEBP">
   <meta property="og:locale" content="ar_AR">
 
   <title>الأريج للعطور — عرض فاخر متحرك</title>
 
   <!-- سياسة أمان محتوى (CSP) — محدثة (إزالة canvas لم تعد ضرورية) -->
   <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    connect-src 'self';
-    img-src 'self' data: https://images.unsplash.com https://picsum.photos;
-    font-src https://fonts.gstatic.com https://fonts.googleapis.com;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline';
-    frame-ancestors 'none';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'none';
-  ">
+  default-src 'self';
+  connect-src 'self' https://www.facebook.com https://www.instagram.com https://*.cdninstagram.com https://*.fbcdn.net;
+  img-src 'self' data: https://images.unsplash.com https://picsum.photos https://www.facebook.com https://www.instagram.com https://*.cdninstagram.com https://*.fbcdn.net;
+  font-src https://fonts.gstatic.com https://fonts.googleapis.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline' https://www.facebook.com https://www.instagram.com https://*.cdninstagram.com https://*.fbcdn.net;
+  frame-src https://www.facebook.com https://www.instagram.com https://*.cdninstagram.com https://*.fbcdn.net;
+  frame-ancestors 'none';
+  object-src 'none';
+  base-uri 'self';
+  form-action 'none';
+">
 
   <!-- خطوط -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -83,20 +84,7 @@
     }
 
     /* وضع النهار (حسب تفضيل الجهاز) — لا زر تبديل */
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg-1:#f8fbf8;
-        --bg-2:#eef5ef;
-        --bg-3:#e7efe8;
-        --paper:#ffffff;
-        --ink:#0b2f1f;
-        --muted:#466451;
-        --glass:rgba(0,0,0,.04);
-        --glass-weak:rgba(0,0,0,.02);
-        --glass-border:rgba(197,162,83,.25);
-        --shadow:0 16px 40px rgba(0,0,0,.08);
-        --line:#dfe7e0;
-      }
+    
     }
 
     /* =========================================================
@@ -291,7 +279,7 @@
     }
 
     .hero h1{
-      font-size:clamp(2rem,5vw,3.8rem);margin:.9rem 0 .2rem;letter-spacing:.6px;font-weight:900;line-height:1.05;
+      font-size:clamp(1.8rem,4.2vw,3.2rem);margin:.9rem 0 .2rem;letter-spacing:.6px;font-weight:900;line-height:1.05;
       position:relative;display:inline-block;
       /* Mask Reveal baseline: clip-path يبدأ من 0 ويكشف مع GSAP */
       -webkit-mask-image: linear-gradient(#000 0 0);
@@ -528,7 +516,54 @@
     @media (prefers-reduced-motion:reduce){
       *{transition:none !important;animation:none !important;scroll-behavior:auto !important}
     }
-  </style>
+  
+/* تحسينات فخمة للهاتف */
+/* تحسينات فخمة للهاتف */
+@media (max-width: 600px) {
+  .brand .logo {
+    width: 54px !important;
+    height: 54px !important;
+    font-size: 1.1rem !important;
+  }
+  .brand .subtitle {
+    display: none !important;
+  }
+  .menu-btn {
+    border-radius: 50% !important;
+    background: rgba(255,255,255,0.06) !important;
+  }
+  .menu-btn:hover {
+    background: rgba(227,202,143,0.18) !important;
+    transform: scale(1.08);
+  }
+  .hero h1 {
+    font-size: clamp(1.4rem, 6vw, 2.2rem) !important;
+  }
+  #rotatingWord {
+    background: linear-gradient(90deg, #c39d44, #efcd7f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .social-inline a {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .social-inline a::before {
+    content: attr(aria-label);
+    position: absolute;
+    bottom: -1.6rem;
+    font-size: 0.7rem;
+    color: var(--muted);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .social-inline a:active::before,
+  .social-inline a:hover::before {
+    opacity: 1;
+  }
+}
+
+</style>
 </head>
 <body>
   <!-- =========================================================
@@ -645,8 +680,10 @@
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm5.75-.25a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" fill="currentColor"/></svg>
         </a>
         <a href="https://www.facebook.com/share/1BRaPN3AGX/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer external" aria-label="Facebook">
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-7h2.4l.4-3h-2.8V9.6c0-.87.24-1.46 1.5-1.46h1.6V5.4c-.28-.04-1.23-.12-2.34-.12-2.32 0-3.91 1.42-3.91 4.03V12H8.1v3h2.25v7h3.15z" fill="currentColor"/></svg>
-        </a>
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M13.5 22v-7h2.4l.4-3h-2.8V9.6c0-.87.24-1.46 1.5-1.46h1.6V5.4c-.28-.04-1.23-.12-2.34-.12-2.32 0-3.91 1.42-3.91 4.03V12H8.1v3h2.25v7h3.15z" fill="currentColor"/>
+</svg>
+</a>
         <!-- واتساب — Deep link + Fallback -->
         <a
           href="https://wa.me/+963981191343"
@@ -813,15 +850,17 @@
         <p>التواصل عبر إنستغرام وفيسبوك وواتساب.</p>
       </div>
       <div class="container contact-box" role="region" aria-label="قنوات التواصل">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer external" aria-label="Instagram">
+        <a href="https://www.instagram.com/arej_perfumes?igsh=Z2NnMDhwNTcxNThj" target="_blank" rel="noopener noreferrer external" aria-label="Instagram">
           <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm5.75-.25a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" fill="currentColor"/></svg>
         </a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer external" aria-label="Facebook">
-          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-7h2.4l.4-3h-2.8V9.6c0-.87.24-1.46 1.5-1.46h1.6V5.4c-.28-.04-1.23-.12-2.34-.12-2.32 0-3.91 1.42-3.91 4.03V12H8.1v3h2.25v7h3.15z" fill="currentColor"/></svg>
-        </a>
+        <a href="https://www.facebook.com/share/1BRaPN3AGX/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer external" aria-label="Facebook">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M13.5 22v-7h2.4l.4-3h-2.8V9.6c0-.87.24-1.46 1.5-1.46h1.6V5.4c-.28-.04-1.23-.12-2.34-.12-2.32 0-3.91 1.42-3.91 4.03V12H8.1v3h2.25v7h3.15z" fill="currentColor"/>
+</svg>
+</a>
         <a
-          href="https://wa.me/15551234567"
-          data-wa-phone="15551234567"
+          href="https://wa.me/963981191343"
+          data-wa-phone="963981191343"
           data-wa-text="مرحبًا ✨"
           class="whatsapp-link"
           target="_blank"
@@ -839,6 +878,10 @@
   <!-- =========================================================
        Footer
        ========================================================= -->
+
+         <!-- =========================================================
+       Footer
+       ========================================================= -->
   <footer role="contentinfo">
     <div class="container footer-grid" aria-label="تذييل">
       <div style="color:var(--muted)">© <span id="year"></span> الأريج للعطور .</div>
@@ -847,10 +890,21 @@
         <a href="#gallery">التشكيلة</a>
         <a href="#testimonials">شهادات</a>
         <a href="#story">حكايتنا</a>
-        <a href="#contact">تواصل</a>
-      </div>
-      <div class="credit">منشئ الموقع: <span style="font-weight:900">اسماعيل الشاكوش</span></div>
-    </div>
+       
+
+</a>
+   <div class="credit" style="display:flex; align-items:center; gap:8px;">
+  منشئ الموقع: <span style="font-weight:900">اسماعيل الشاكوش</span>
+  <a href="https://www.facebook.com/share/1CWV9JLRS6/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+      <path d="M13.5 22v-7h2.4l.4-3h-2.8V9.6c0-.87.24-1.46 1.5-1.46h1.6V5.4c-.28-.04-1.23-.12-2.34-.12-2.32 0-3.91 1.42-3.91 4.03V12H8.1v3h2.25v7h3.15z"/>
+    </svg>
+  </a>
+</div>
+
+
+
+
   </footer>
 
   <!-- زر العودة للأعلى -->
@@ -1022,30 +1076,30 @@
       "https://images.unsplash.com/photo-1705338670422-01133208eab9?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1747916148827-d5fb453bb978?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D",
       "https://images.unsplash.com/photo-1704900168080-6919a6a6d1c8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8",
-      "images/IMG_9793.JPG",
-      "images/IMG_9796.JPG",
+      "images/IMG_9875.WEBP",
+      "images/IMG_9870.WEBP",
       "https://images.unsplash.com/photo-1752214873218-a26640a68fed?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "images/IMG_0250.jpg",
+      "images/IMG_9872.WEBP",
       "images/IMG_0251.WEBP",
-      "images/IMG_9795.JPG",
-      "images/IMG_9801.JPG",
-      "images/IMG_0248.jpg",
+      "images/IMG_9869.WEBP",
+      "images/IMG_0247.JPG",
+      "images/IMG_9878.WEBP",
       "https://images.unsplash.com/photo-1700524033466-9fecd40087ce?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1720414913669-87031493d7c9?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1624798956425-ef88fc12b540?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
       "https://images.unsplash.com/photo-1716871764533-39841e7180c9?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "images/IMG_9797.JPG",
+      "images/IMG_9871.WEBP",
       "https://images.unsplash.com/photo-1561997837-ad5a1641dbd7?q=80&w=1288&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1595002032567-42217542ef95?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1612784641667-365798bba014?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "images/IMG_9802.JPG",
-      "images/IMG_9804.JPG",
-      "images/IMG_9805.JPG",
-      "images/IMG_9803.JPG",
+      "images/IMG_9877.WEBP",
+      "images/IMG_9881.WEBP",
+      "images/IMG_9880.WEBP",
+      "images/IMG_9882.WEBP",
       "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=2304&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "images/IMG_9822.JPG",
-      "images/IMG_9823.JPG",
-      "images/IMG_9824.JPG",
+      "images/IMG_9873.WEBP",
+      "images/IMG_9883.WEBP",
+      "images/IMG_9876.WEBP",
       "https://images.unsplash.com/photo-1707899997123-226a3f57aa32?q=80&w=2625&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ];
     const MAX_GALLERY = 30;
@@ -1066,26 +1120,26 @@
     'نسائي',
     'رجالي',
     'نسائي',
+    'رجالي',
+    'رجالي',
+    'رجالي',
+    'رجالي',
+    'رجالي',
+    'رجالي',
+    'نسائي',
+    'رجالي',
+    'رجالي',
+    'نسائي',
+    'رجالي',
+    'رجالي',
+    'رجالي',
+    'رجالي',
+    'نسائي',
+    'نسائي',
+    'نسائي',
+    'رجالي',
     'للجنسين',
     'رجالي',
-    'رجالي',
-    'رجالي',
-    'رجالي',
-    'رجالي',
-    'نسائي',
-    'رجالي',
-    'رجالي',
-    'نسائي',
-    'رجالي',
-    'رجالي',
-    'رجالي',
-    'رجالي',
-    'نسائي',
-    'نسائي',
-    'نسائي',
-    'رجالي',
-    'رجالي',
-    'للجنسين',
   ];
   const tag = labels[idx]; // ياخذ الاسم حسب رقم الصورة
   return { title:`EL-AREEJ`, tag };
@@ -1098,7 +1152,7 @@
   const { title, tag } = buildCaption(i);
   fig.innerHTML = `
     <div class="media">
-      <img data-src="${src}" alt="${title}" width="300">
+      <img data-src="${src}" alt="${title}" width="300" loading=\"lazy\">
     </div>
     <figcaption class="caption">
       <span>${title}</span>
